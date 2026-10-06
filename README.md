@@ -4,6 +4,22 @@ This repository is configured to use the [fal.ai](https://fal.ai) MCP server
 with Claude Code. The server exposes fal's model-serving tools over an HTTP
 transport.
 
+## Skills for generating media
+
+Two Claude Code skills in [`.claude/skills/`](./.claude/skills) teach any Claude
+session in this repo how to use the fal MCP well. They are distilled from a real
+production: a 60-second, 1080p commercial made with Seedance 2.5, Nano Banana Pro,
+Lyria 3.5 and ElevenLabs SFX on fal ($333.92 of generation).
+
+| Skill | Use it for | What it adds |
+|---|---|---|
+| [`fal-media`](./.claude/skills/fal-media/SKILL.md) | Any fal generation: images, video clips, music, SFX | MCP call pattern (submit, poll, fetch), a budget ledger with hard caps, cheap-draft-then-finish, prompt templates, likeness-filter recipes, review and QA |
+| [`fal-commercial`](./.claude/skills/fal-commercial/SKILL.md) | A commercial or brand film, with 30 s / 15 s / 9:16 cutdowns | The production runbook: reference analysis, AI-judged concepts, parallel shot agents, three human gates, data-driven edit, typography, mix and delivery |
+
+Claude loads them automatically when a request matches; you can also ask for one by
+name. The local scripts need Python 3 with `numpy`, `opencv-python-headless` and
+`pillow`, plus `ffmpeg` on the PATH (see each skill's scripts folder).
+
 ## Configuration
 
 The connection is defined in [`.mcp.json`](./.mcp.json) at the project scope, so
