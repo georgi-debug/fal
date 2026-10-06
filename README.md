@@ -18,7 +18,9 @@ Lyria 3.5 and ElevenLabs SFX on fal ($333.92 of generation).
 
 Claude loads them automatically when a request matches; you can also ask for one by
 name. The local scripts need Python 3 with `numpy`, `opencv-python-headless` and
-`pillow`, plus `ffmpeg` on the PATH (see each skill's scripts folder).
+`pillow`, plus `ffmpeg` on the PATH; the optional music-analysis tools also need
+`librosa` and `soundfile`. The cut-list renderer and mix are documented in
+[`fal-commercial/reference/cutlist-format.md`](./.claude/skills/fal-commercial/reference/cutlist-format.md).
 
 ## Configuration
 
